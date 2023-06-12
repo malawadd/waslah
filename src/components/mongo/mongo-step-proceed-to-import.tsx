@@ -121,12 +121,6 @@ export default function MongoStepProceedToImport({
             (errors.length > 0 ? `\nErrors: ${errors}` : ''),
           isClosable: true,
           duration: 15000,
-          render: () => (
-            <Box color='white' p={3} bg='blue.500'>
-              `${response.protocolLink}`
-            </Box>
-          ),
-
           status: 'success',
         })
         
