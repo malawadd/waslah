@@ -21,3 +21,16 @@ export const migrateMongoDBToSpheronStore = async ({
 
   return resp.data
 }
+
+
+export const migrateIPFSToMongDB = async ({
+  mongoConfig,
+  cid,
+}) => {
+  const resp = await axios.post(`${baseUrl}/migrateto`, {
+    mongoConfig,
+    cid,
+  })
+
+  return resp.data
+}

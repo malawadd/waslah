@@ -129,7 +129,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
         migrate From mongodb
       </NavItem>
       <NavItem icon={FiGitMerge} hrefPath={'/import'}>
-        import inpt  MongoDB
+        import into  MongoDB
       </NavItem>
       
     </Box>
