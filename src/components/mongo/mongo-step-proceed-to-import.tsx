@@ -5,11 +5,7 @@ import {
   FormControl,
   FormErrorMessage,
   FormLabel,
-  Icon,
   Input,
-  InputGroup,
-  InputRightElement,
-  Select,
   Stack,
   Text,
   useColorModeValue,
@@ -20,24 +16,16 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { migrateMongoDBToSpheronStore } from 'services/migrate-mongo'
 import { useRouter } from 'next/router'
 import { object, string } from 'yup'
-import { RiEyeCloseLine } from 'react-icons/ri'
-import { MdOutlineRemoveRedEye } from 'react-icons/md'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useForm } from 'react-hook-form'
 
 const formSchema = object({
-  selectedSDB: string().nullable(),
   dbUser: string().required('Required.'),
-  dbPassword: string().nullable(),
 
-  
 })
 
 interface FormValues {
-  selectedSDB: null
   dbUser: string
-  dbPassword: string
-
 }
 
 export default function MongoStepProceedToImport({
@@ -51,7 +39,7 @@ export default function MongoStepProceedToImport({
     formState: { errors, isSubmitting },
   } = useForm<FormValues>({
     resolver: yupResolver(formSchema),
-    defaultValues: { dbPassword: null, dbUser: null },
+    defaultValues: { dbUser: null },
   })
   const databasesRef = useRef({})
   const [show, setShow] = useState(false)
@@ -70,9 +58,7 @@ export default function MongoStepProceedToImport({
     useDatabaseMigrationStore()
 
   const handleStartMigrationClick = useCallback(
-    async ({ dbPassword, dbUser, selectedSDB }: FormValues) => {
-      // const sDB = databasesRef.current[selectedSDB]
-
+    async ({dbUser}: FormValues) => {
       let mongoConfig = {
         host: mongoHost,
         dbName: currentDb,
@@ -86,9 +72,6 @@ export default function MongoStepProceedToImport({
         dbPassword:null,
       }
 
-      // let spheronconfig = {
-      //   token: dbUser
-      // }
       console.log(spheronStoreConfig)
 
       setLoading(true)
@@ -124,7 +107,6 @@ export default function MongoStepProceedToImport({
           status: 'success',
         })
         
-        // await router.push('/dashboard')
       } catch (err) {
         console.log(err)
         setLoading(false)
@@ -135,7 +117,7 @@ export default function MongoStepProceedToImport({
         })
       }
     },
-    [mongoHost, selectedCollections, currentDb]
+    [mongoHost, selectedCollections, currentDb, toast]
   )
 
 
@@ -156,21 +138,6 @@ export default function MongoStepProceedToImport({
             onSubmit={handleSubmit(handleStartMigrationClick)}
             style={{ marginTop: 24 }}
           >
-            <FormControl isInvalid={!!errors.selectedSDB} mb="24px">
-              <FormLabel
-                ms="4px"
-                fontSize="sm"
-                fontWeight="500"
-                color={textColor}
-                {...register('selectedSDB')}
-              >
-              </FormLabel>
-              
-              
-              <FormErrorMessage>
-                {errors.selectedSDB && (errors.selectedSDB?.message as any)}
-              </FormErrorMessage>
-            </FormControl>
             <FormControl isInvalid={!!errors.dbUser} mb="24px">
               <FormLabel
                 display="flex"
@@ -194,22 +161,6 @@ export default function MongoStepProceedToImport({
                 {errors.dbUser && errors.dbUser.message}
               </FormErrorMessage>
             </FormControl>
-            <FormControl isInvalid={!!errors.dbPassword} mb="24px">
-              <FormLabel
-                ms="4px"
-                fontSize="sm"
-                fontWeight="500"
-                color={textColor}
-                {...register('dbPassword')}
-              >
-              </FormLabel>
-             
-      
-              <FormErrorMessage>
-                {errors.dbPassword && errors.dbPassword.message}
-              </FormErrorMessage>
-            </FormControl>
-
             <Box textAlign={'center'}>
               <Button
                 isLoading={loading}

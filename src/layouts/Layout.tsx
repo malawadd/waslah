@@ -14,7 +14,7 @@ import {
   IconButton,
 } from '@chakra-ui/react'
 
-import { FiGitCommit, FiGitMerge, FiMenu } from 'react-icons/fi'
+import { FiGitCommit, FiGitMerge, FiMenu, FiCpu } from 'react-icons/fi'
 import { useRouter } from 'next/router'
 import { IoMdMoon, IoMdSunny } from 'react-icons/io'
 
@@ -131,7 +131,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
       <NavItem icon={FiGitMerge} hrefPath={'/import'}>
         Import into MongoDB
       </NavItem>
-      <NavItem icon={FiGitMerge} hrefPath={'/deal'}>
+      <NavItem icon={FiCpu} hrefPath={'/deal'}>
         Migrate with a deal 
       </NavItem>
       
