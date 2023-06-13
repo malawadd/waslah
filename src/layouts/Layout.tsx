@@ -126,10 +126,10 @@ const SidebarContent = ({ onClose, ...rest }) => {
         <CloseButton onClick={onClose} />
       </Flex>
       <NavItem icon={FiGitCommit} hrefPath="/migrate">
-        migrate From mongodb
+        Migrate From MongoDB
       </NavItem>
       <NavItem icon={FiGitMerge} hrefPath={'/import'}>
-        import into  MongoDB
+        Import into MongoDB
       </NavItem>
       
     </Box>
