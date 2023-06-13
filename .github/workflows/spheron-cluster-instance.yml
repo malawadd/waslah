@@ -36,7 +36,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: image:${{ steps.extract-version.outputs.version }}
+          tags: vezga/waslah:${{ steps.extract-version.outputs.version }}
  
       - name: Update Spheron Instance
         id: update-spheron-instance
