@@ -35,7 +35,7 @@ async function migrate(req, res) {
       jsonString,
     {
       protocol: ProtocolEnum.FILECOIN,
-      name : "metababy",
+      name : "waslah.xyz",
       
     }
   );
