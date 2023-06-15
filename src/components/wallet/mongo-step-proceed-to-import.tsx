@@ -130,7 +130,7 @@ export default function MongoStepProceedToImport({
         if (epochApi != error){
            epoch = epochApi
         } else {
-          epoch = 650523
+          epoch = 750523
         }
         console.log('epoch is ' , epoch )
         const carsize = await carSize({ string: fileUrl }) ; 
@@ -148,8 +148,8 @@ export default function MongoStepProceedToImport({
                     filesize,
                     false,
                     hash,
-                    epoch, //startEpoch - be sure to check while final deploy
-                    epoch+182168, // end epoch - '👆'
+                    epoch+26024, //startEpoch + 24 hours 
+                    epoch+182168, // end epoch -  one week 
                     0,
                     0,
                     0,
