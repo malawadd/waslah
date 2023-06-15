@@ -38,7 +38,11 @@ async function migrate(req, res) {
       name : "waslah.xyz",
       
     }
+    
   );
+    //delete file 
+    fs.unlinkSync(filename);
+    
     const message = `Successfully migrated database ${mongoConfig.dbName} to ${spheronStoreConfig.dbName}`
    
     res.json({
