@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-const baseUrl = '/api/'
+const baseUrl = '/api/car'
 
 export const carSize = async ({ string:fileUrl}) => {
   console.log('hello',fileUrl)
