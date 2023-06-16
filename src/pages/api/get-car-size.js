@@ -9,7 +9,6 @@ export default function handler(req, res) {
 }
 
 async function carSize(req, res) {
-  console.log('mhm1' , req.body.fileUrl)
   const filePath = './file.car';
   await downloadFile(req.body.fileUrl, filePath)
   console.log('File downloaded successfully!');

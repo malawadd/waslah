@@ -2,6 +2,7 @@ import { Step, Steps, useSteps } from 'chakra-ui-steps'
 
 import { Box } from '@chakra-ui/react'
 import Layout from 'layouts/Layout'
+//
 
 import Head from 'next/head'
 import { useState } from 'react'
