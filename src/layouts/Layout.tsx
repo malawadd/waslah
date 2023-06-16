@@ -131,7 +131,7 @@ const SidebarContent = ({ onClose, ...rest }) => {
       <NavItem icon={FiGitMerge} hrefPath={'/import'}>
         Import into MongoDB
       </NavItem>
-      <NavItem icon={FiCpu} hrefPath={'/deal'}>
+      <NavItem icon={FiCpu} hrefPath={'/deal_fvm'}>
         Migrate with a deal 
       </NavItem>
       
