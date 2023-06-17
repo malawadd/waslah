@@ -155,11 +155,15 @@ export default function MongoStepProceedToImport({
                     0,
                     1,
                     extraParamsV1
-                  ] // @ts-ignore
-                  write({
+                  ] 
+                  console.log('writting contract ')
+                  // @ts-ignore
+                  const writeContract = write({
                       args: [DealRequestStruct],
                       from: address
                     });
+                  console.log('done')
+
             }
             
 
