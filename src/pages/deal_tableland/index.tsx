@@ -11,7 +11,7 @@ import axios from 'axios'
 import MongoStepConfigureDb from 'components/wallet/mongo-step-configure-db'
 import MongoStepSelectDb from 'components/mongo/mongo-step-select-db'
 import MongoStepSelectCollections from 'components/mongo/mongo-step-select-collections'
-import MongoStepProceedToImport from 'components/wallet/mongo-step-proceed-to-import'
+import MongoStepProceedToImport from 'components/wallet/tableland'
 import { useDatabaseMigrationStore } from 'contexts/useDatabaseMigrationStore'
 import { NextPageWithLayout } from 'types/Layout'
 // @ts-ignore
